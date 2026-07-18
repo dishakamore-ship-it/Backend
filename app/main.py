@@ -14,9 +14,15 @@ async def lifespan(app: FastAPI):
 app = FastAPI(title="Personal Finance Tracker API", lifespan=lifespan)
 
 # CORS middleware
+from fastapi.middleware.cors import CORSMiddleware
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "http://127.0.0.1:5500",
+        "http://localhost:5500",
+        "https://your-frontend-domain.com"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
