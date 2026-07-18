@@ -16,11 +16,7 @@ app = FastAPI(title="Personal Finance Tracker API", lifespan=lifespan)
 # CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://127.0.0.1:5500",
-        "http://localhost:5500",
-        "https://frontend-ivory-seven-2ahzon8ydl.vercel.app"
-    ],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
